@@ -97,7 +97,7 @@ export const CountryList = (props) => {
                     options={props.CountryListdata.countryListData.data ? props.CountryListdata.countryListData.data : ''}
                     onChange={(values) => onChange(values, props)}
                     dropdownwidth={"30px"}
-                    placeholder= {'Please Select Country'}
+                    placeholder= {'Please Select title'}
                     multi={true}
 
                 />
@@ -122,48 +122,3 @@ export const CountryList = (props) => {
 
 }
 
-
-export const DisplayNumberField = ()=>{
-   
-const  [stateValue,updataValue] = useState({
-        value: ''
-    })  
-function AddtoState (values){
-    updataValue({value:values.target.value})
-}
-    
-function findMissingValue (values){
-    var a = values.split('');
-    a.sort();
-    for(var i=0; i<a.length;i++){
-                if( (parseInt(a[i])+1) == parseInt(a[i+1])){
-        }else{
-            if( (a).indexOf(parseInt(a[i])+2)<0){
-                        alert('pelase check the input values as more then one numve is missing from given  numebrs')
-            }else{
-            let missingNumber = parseInt(a[i])+1;
-                    alert( "missing number " + missingNumber);
-                break;
-            }
-        }
-        
-    }
-}
-    return(
-    <div>
-            
-     {'Please enter sequence of number' } <input type= 'text' onBlur= {(event)=>AddtoState(event)}></input>
-    <button onClick ={()=>findMissingValue(stateValue.value)}>{'click'}</button>
-
-    </div>
-    )
-}
-
-
-// export class DisplayNumberField extends React.Component(){
-//     render(){
-//         return(
-//             <div></div>
-//         )
-//     }
-// }
